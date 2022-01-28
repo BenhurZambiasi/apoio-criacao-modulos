@@ -2,9 +2,9 @@ import React from "react";
 
 import "./styles.css";
 
-function Checkbox({ onChange, label, error }) {
+function Checkbox({ onChange, label, error, className }) {
   return (
-    <div className="container-check">
+    <div className={`container-check ${className}`}>
       <label htmlFor="check_id">
         <input type="checkbox" id="check_id" onChange={onChange} />
         <div className={`${error && "error"} content-check`}>

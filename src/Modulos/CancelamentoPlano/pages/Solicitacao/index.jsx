@@ -3,11 +3,10 @@ import Titulo from "../../components/Titulo";
 import SelecaoBeneficiarios from "./SelecaoBeneficiarios";
 import HistoricoSolicitacoes from "./HistoricoSolicitacoes";
 import Formulario from "./Formulario";
-import Modal from "../../components/ModalMensagem";
+import Modal from "../../components/ModalConfirmacao";
 
 const Solicitacao = () => {
   const [showModal, setShowModal] = useState(false);
-
   const beneficiarios = [
     {
       numeroCartao: "08651234000000001",
@@ -19,76 +18,6 @@ const Solicitacao = () => {
       nome: "LUIZ FELIPE DOS SANTOS",
       relacao: "Dependente",
     },
-    {
-      numeroCartao: "08651234000000003",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "08651234000000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "08651234000000005",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "086534000000006",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "08651000000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "0865123400000",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "086512340000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "08654000000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "0851234000000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "086512340000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "081234000000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "08651234000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "086512340000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
-    {
-      numeroCartao: "0865123400000004",
-      nome: "LUIZ FELIPE DOS SANTOS",
-      relacao: "Dependente",
-    },
   ];
 
   const handleClose = () => {
@@ -97,7 +26,7 @@ const Solicitacao = () => {
 
   return (
     <>
-      <Titulo />
+      {/* <Titulo /> */}
       {showModal && (
         <Modal beneficiarios={beneficiarios} handleClose={handleClose} />
       )}
@@ -105,7 +34,7 @@ const Solicitacao = () => {
       <button className="btn btn-primary" onClick={() => setShowModal(true)}>
         Show Modal
       </button>
-      <div className="cancelamento-plano-container-titulo">
+      {/* <div className="cancelamento-plano-container-titulo">
         <p className="cancelamento-plano-titulo-green mb-0">
           Informações sobre o beneficiário
         </p>
@@ -127,7 +56,7 @@ const Solicitacao = () => {
 
         <Formulario />
       </div>
-      <HistoricoSolicitacoes />
+      <HistoricoSolicitacoes /> */}
     </>
   );
 };
