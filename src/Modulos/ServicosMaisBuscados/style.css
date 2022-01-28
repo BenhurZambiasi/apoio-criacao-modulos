@@ -1,0 +1,80 @@
+.master-container {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 28px;
+  padding: 10px;
+}
+
+.master-container h1 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.master-container p {
+  color: #fff;
+  font-size: 18px;
+}
+
+.mais-buscados-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.mais-buscados-title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.mais-buscados-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 223px;
+  padding: 15px;
+  height: 47px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px #00000029;
+  cursor: pointer;
+}
+
+.mais-buscados-item p {
+  font-size: 14px !important;
+  padding-top: 20px;
+  color: #333333;
+  font-weight: bold !important;
+  line-height: 14px !important;
+  text-align: left !important;
+}
+
+.mais-buscados-button-services {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 223px;
+  padding: 15px;
+  height: 47px;
+  background: #B1D34B;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px #00000029;
+  cursor: pointer;
+}
+
+.mais-buscados-button-services p {
+  color: #08461B;
+  font-size: 14px !important;
+  padding-top: 20px;
+  font-weight: bold !important;
+  line-height: 14px !important;
+  text-align: center !important;
+  width: 100%;
+}

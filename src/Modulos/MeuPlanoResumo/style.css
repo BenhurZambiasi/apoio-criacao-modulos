@@ -1,0 +1,74 @@
+.meu-plano-resumo-container {
+  margin: auto;
+  margin-top: 50px;
+  max-width: 1248px;
+  box-shadow: 0px 2px 5px #00000029;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  display: flex;
+}
+
+.meu-plano-resumo-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.meu-plano-resumo-title-borda {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: bold;
+}
+
+.meu-plano-resumo-grupo {
+  padding-bottom: 13px;
+  line-height: 0.5;
+}
+
+.meu-plano-resumo-grupo-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.meu-plano-resumo-grupo-dado {
+  line-height: 1;
+  margin-top: -5px;
+}
+
+.meu-plano-resumo-info-pessoal {
+  width: 340px;
+  padding-right: 30px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.meu-plano-resumo-info-pessoal-header {
+  display: flex;
+}
+
+.meu-plano-resumo-info-pessoal-header-foto {
+  width: 90px;
+}
+
+.meu-plano-resumo-info-pessoal-body-title {
+  color: #08461b;
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+
+.meu-plano-resumo-info-plano {
+  width: 100%;
+  padding-left: 35px;
+}
+
+.meu-plano-resumo-info-plano-dados {
+  display: flex;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.meu-plano-resumo-info-plano-footer {
+  display: flex;
+  justify-content: flex-end;
+}

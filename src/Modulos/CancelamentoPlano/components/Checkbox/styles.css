@@ -1,0 +1,42 @@
+.container-check label {
+  cursor: pointer;
+}
+
+.container-check {
+  display: flex;
+  gap: 5px;
+}
+
+.container-check label input[type="checkbox"] {
+  display: none;
+}
+
+.container-check label .content-check {
+  border: 1px solid #00995d;
+  height: 22px;
+  width: 22px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.container-check label input[type="checkbox"]:checked ~ .content-check div {
+  width: 16px;
+  height: 16px;
+  background-color: #00995d;
+  border-radius: 5px;
+}
+
+.label-check {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.error {
+  border-color: red !important;
+  color: red;
+}

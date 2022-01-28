@@ -1,0 +1,44 @@
+.cancelamento-plano-titulo {
+  text-align: center;
+}
+
+.cancelamento-plano-titulo h1 {
+  font-family: "Unimed Slab Bold";
+  font-size: 30px;
+  padding-bottom: 14px;
+  color: #333333;
+}
+
+.cancelamento-plano-titulo p {
+  font-family: "Unimed Slab";
+  line-height: 5px;
+  font-size: 18px;
+  color: #7c7c83;
+}
+
+.cancelamento-plano-titulo b {
+  font-family: "Unimed Slab Bold";
+  font-size: 18px;
+  color: #7c7c83;
+}
+
+.cancelamento-plano-container-titulo {
+  border-bottom: 2px solid #00995d;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.cancelamento-plano-container-titulo p {
+  margin-left: 30px;
+}
+
+.cancelamento-plano-container-page {
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+.cancelamento-plano-titulo-green {
+  font-family: "Unimed Sans Bold";
+  font-size: 18px;
+  color: #00995d;
+}
