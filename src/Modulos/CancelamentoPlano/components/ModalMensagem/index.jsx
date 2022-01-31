@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Checkbox from "../Checkbox";
-import "./styles.css";
 
 const ModalMensagem = ({ beneficiarios, handleClose }) => {
   const [terms, setTerms] = useState();
