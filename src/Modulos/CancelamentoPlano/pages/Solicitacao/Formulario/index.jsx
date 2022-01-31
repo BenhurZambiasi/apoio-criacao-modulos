@@ -24,7 +24,8 @@ const Formulario = () => {
       }}
       onSubmit={(values, action) => {
         debugger;
-      }}>
+      }}
+    >
       {({
         values,
         errors,
@@ -39,10 +40,10 @@ const Formulario = () => {
         validateForm,
       }) => (
         <form onSubmit={handleSubmit}>
-          <p>Informe o telefone do títular</p>
+          <h4>Informe o telefone do títular</h4>
           <div className="row">
             <div className="form-group col-md-5 col-sm-12 col-xl-4">
-              <label htmlFor="telefone">Telefone*</label>
+              <label for="telefone">Telefone*</label>
               <input
                 id="telefone"
                 className={`form-control ${
@@ -62,7 +63,7 @@ const Formulario = () => {
               )}
             </div>
             <div className="form-group col-md-5 col-sm-12 col-xl-4">
-              <label htmlFor="email">E-mail*</label>
+              <label for="email">E-mail*</label>
               <input
                 id="email"
                 className={`form-control ${
@@ -87,6 +88,11 @@ const Formulario = () => {
             Solicitações encaminhadas estarão disponíveis para acompanhamento
             após anaálise da Unimed.
           </p>
+          <div className="cancelamento-plano-footer-botoes">
+            <button className="btn-unimed btn-unimed--green" type="submit">
+              SOLICITAR
+            </button>
+          </div>
         </form>
       )}
     </Formik>

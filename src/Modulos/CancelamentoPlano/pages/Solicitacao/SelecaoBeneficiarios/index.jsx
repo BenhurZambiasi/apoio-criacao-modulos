@@ -3,18 +3,16 @@ import Beneficiario from "./Beneficiario";
 
 const SelecaoBeneficiarios = (props) => {
   return (
-    <table>
+    <table className="cancelamento-plano-tabela">
       <thead>
         <td>Remover</td>
         <td>Número do cartão</td>
         <td>Nome</td>
         <td>Data de nascimento</td>
       </thead>
-      <tbody>
-        {props.beneficiarios.map((beneficiario, index) => (
-          <Beneficiario key={index + 1} beneficiario={beneficiario} />
-        ))}
-      </tbody>
+      {props.beneficiarios.map((beneficiario) => (
+        <Beneficiario key={beneficiario.cartao} beneficiario={beneficiario} />
+      ))}
     </table>
   );
 };

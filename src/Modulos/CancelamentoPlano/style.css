@@ -1,3 +1,85 @@
+.cancelamento-plano-mensagem p {
+  white-space: pre-line;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 25px;
+  font-size: 24px;
+  font-family: "Unimed Slab";
+}
+
+.cancelamento-plano-mensagem-warning {
+  color: #f47920;
+}
+
+.cancelamento-plano-mensagem-info {
+  color: #00995d;
+}
+
+.cancelamento-plano-mensagem-erro {
+  color: #ed1651;
+}
+
+.cancelamento-plano-alerta {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cancelamento-plano-alerta img {
+  padding-right: 10px;
+  margin-top: 5px;
+  width: 35px;
+}
+
+.cancelamento-plano-alerta p {
+  font-size: 20px;
+  color: #f47920;
+}
+
+.cancelamento-plano-mensagem img {
+  display: flex;
+  margin: auto;
+  width: 40px;
+}
+
+.cancelamento-plano-mensagem {
+  padding-top: 20px;
+}
+
+.cancelamento-plano-footer-botoes {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cancelamento-plano-tabela {
+  font-size: 14px;
+  font-family: "Unimed Sans";
+  color: #333333;
+  width: 100%;
+}
+
+.cancelamento-plano-tabela thead {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cancelamento-plano-tabela thead td {
+  padding-bottom: 12px !important;
+}
+
+.cancelamento-plano-tabela td {
+  padding: 30px;
+}
+
+.cancelamento-plano-tabela tr:nth-child(2n) {
+  background-color: #f8f8f8;
+  border-top: #c4cbcf 1px solid;
+  border-bottom: #c4cbcf 1px solid;
+  opacity: 1;
+}
+
 .cancelamento-plano-titulo {
   text-align: center;
 }

@@ -1,16 +1,16 @@
 import React from "react";
 
-const RN_MSG_CONFIRMAR_DATA = `Informe a data do cancelamento do plano
-solicitado na empresa.`;
+const RN_MSG_CONFIRMAR_COMUNICOU_EMPRESA = `Você já entrou em contato com a sua empresa
+  para solicitar o cancelamento do plano?`;
 
-const ConfirmacaoDataContatoEmpresa = (props) => {
+const ConfirmacaoContatoEmpresa = (props) => {
   const { setTipoFormulario } = props;
 
   return (
     <>
       <div className="cancelamento-plano-mensagem">
         <p className="cancelamento-plano-mensagem-info">
-          {RN_MSG_CONFIRMAR_DATA}
+          {RN_MSG_CONFIRMAR_COMUNICOU_EMPRESA}
         </p>
       </div>
       <div className="cancelamento-plano-footer-botoes">
@@ -18,17 +18,17 @@ const ConfirmacaoDataContatoEmpresa = (props) => {
           className="btn-unimed btn-unimed--green"
           onClick={() => window.history.back()}
         >
-          VOLTAR
+          NÃO
         </button>
         <button
           className="btn-unimed btn-unimed--green"
-          onClick={() => setTipoFormulario("Solicitacao")}
+          onClick={() => setTipoFormulario("ConfirmacaoDataContatoEmpresa")}
         >
-          CONFIRMAR
+          SIM
         </button>
       </div>
     </>
   );
 };
 
-export default ConfirmacaoDataContatoEmpresa;
+export default ConfirmacaoContatoEmpresa;
