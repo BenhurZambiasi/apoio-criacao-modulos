@@ -2,16 +2,20 @@ import React from "react";
 import Checkbox from "../Checkbox";
 import "./styles.css";
 
-const ModalConfirmacaoDesktop = ({
+const ConteudoModal = ({
   beneficiarios,
   handleClose,
   handleTerms,
   handleEnviar,
   errTerms,
+  terms,
 }) => {
   return (
     <div className="modal-content-cancelamento">
       <div className="content-cancelamento">
+        <div className="exit-responsive">
+          <span onClick={handleClose}></span>
+        </div>
         <div className="title">
           <div>
             <h1>
@@ -20,6 +24,29 @@ const ModalConfirmacaoDesktop = ({
               beneficiário(s):
             </h1>
           </div>
+        </div>
+        <div className="list-beneficiarios-responsive">
+          {beneficiarios &&
+            beneficiarios.map((bene, index) => {
+              return (
+                <>
+                  <div>
+                    <span>Número do cartão</span>
+                    <span>{bene.numeroCartao}</span>
+                  </div>
+                  <div>
+                    <span>Nome</span>
+                    <span>
+                      {bene.nome} ({bene.relacao})
+                    </span>
+                  </div>
+                  {beneficiarios.length > 1 &&
+                    index != beneficiarios.length - 1 && (
+                      <div className="divider-list-beneficiarios-responsive"></div>
+                    )}
+                </>
+              );
+            })}
         </div>
         <div className="info-cartao">
           <table className="table-bene-cancelamento">
@@ -136,9 +163,10 @@ const ModalConfirmacaoDesktop = ({
             </p>
           </div>
           <Checkbox
-            className=" "
+            className="responsive-terms"
             onChange={handleTerms}
             error={errTerms}
+            terms={terms}
             label="Li e estou ciente das consequências do envio da solicitação de
                 cancelamento (Art. 15º)."
           />
@@ -150,12 +178,8 @@ const ModalConfirmacaoDesktop = ({
           </button>
         </div>
       </div>
-
-      <div className="exit">
-        <div onClick={handleClose}></div>
-      </div>
     </div>
   );
 };
 
-export default ModalConfirmacaoDesktop;
+export default ConteudoModal;

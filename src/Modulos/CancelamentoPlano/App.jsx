@@ -5,6 +5,8 @@ import HistoricoSolicitacoes from "./pages/HistoricoSolicitacoes";
 import Solicitacao from "./pages/Solicitacao";
 import ConfirmacaoContatoEmpresa from "./pages/ConfirmacaoContatoEmpresa";
 import ConfirmacaoDataContatoEmpresa from "./pages/ConfirmacaoDataContatoEmpresa";
+import ModalConfirmacao from "./components/ModalConfirmacao";
+
 import "./style.css";
 
 const RN_MSG_SOMENTE_TITULAR_CANCALAMENTO = {
@@ -36,6 +38,8 @@ const RN_MSG_OCORREU_ERRO = {
 
 const App = () => {
   const [message, setMessage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
   const [tipoFormulario, setTipoFormulario] = useState(
     "ConfirmacaoContatoEmpresa"
   );
@@ -54,13 +58,54 @@ const App = () => {
 
     fetchRegrasNegocio();
   }, []);
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
+  const openModal = () => {
+    setShowModal(true);
+  };
   return (
     <>
+      {showModal && (
+        <ModalConfirmacao
+          beneficiarios={[
+            {
+              numeroCartao: "000654531054",
+              nome: "Paulo R B Ventura",
+              dataNascimento: "14/01/2019",
+              relacao: "Titular",
+            },
+            {
+              numeroCartao: "000654531014",
+              nome: "Paulo 2",
+              dataNascimento: "14/01/2019",
+              relacao: "Dependente",
+            },
+            {
+              numeroCartao: "000654531024",
+              nome: "Paulo 3",
+              relacao: "Dependente",
+              dataNascimento: "14/01/2019",
+            },
+            {
+              numeroCartao: "000654531034",
+              nome: "Paulo 4",
+              relacao: "Dependente",
+              dataNascimento: "14/01/2019",
+            },
+          ]}
+          handleClose={handleClose}
+        />
+      )}
       <Titulo />
       {message && <Mensagem message={message} />}
 
       {!message && tipoFormulario === "Solicitacao" && (
-        <Solicitacao setTipoFormulario={setTipoFormulario} />
+        <Solicitacao
+          setTipoFormulario={setTipoFormulario}
+          openModal={openModal}
+        />
       )}
       {!message && tipoFormulario === "ConfirmacaoContatoEmpresa" && (
         <ConfirmacaoContatoEmpresa setTipoFormulario={setTipoFormulario} />

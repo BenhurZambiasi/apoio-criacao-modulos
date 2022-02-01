@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import AtencaoIcon from "../../assets/icons/icone_atencao_orange.svg";
 import Formulario from "./Formulario";
 import SelecaoBeneficiarios from "./SelecaoBeneficiarios";
+import ModalConfirmacao from "../../components/ModalConfirmacao";
 
-const Solicitacao = () => {
+const Solicitacao = ({ openModal }) => {
   return (
     <>
+      <button onClick={openModal}>open</button>
       <div className="cancelamento-plano-container-titulo">
         <p className="cancelamento-plano-titulo-green mb-0">
           Informações sobre o beneficiário

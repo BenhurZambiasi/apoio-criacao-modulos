@@ -1,9 +1,10 @@
 .modal-container {
   background: rgba(0, 0, 0, 0.6);
   width: 100vw;
-  height: 100vh;
-  position: absolute;
-  padding: 10px 0px;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  padding: 10px 3px;
   display: flex;
   justify-content: center;
 }
@@ -11,7 +12,7 @@
 .modal-content-cancelamento {
   width: 100%;
   max-width: 1000px;
-  height: 900px;
+  height: 844px;
   background: #fff;
   position: relative;
   border-radius: 8px;
@@ -19,34 +20,33 @@
   padding: 30px;
   overflow-y: auto;
 }
-
-.content-cancelamento {
+.modal-header-responsive {
+  border-bottom: 1px solid #7c7c83;
+}
+.modal-header-responsive > h1 {
+  font-size: 18px;
+  color: #00995d;
+  font-weight: bold;
+}
+.exit-responsive {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
-  margin-top: 58px;
 }
 
-.exit {
+.exit-responsive span::before {
+  content: "\2573";
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
   color: #777777;
-  margin-top: 2px;
-}
-.exit div {
-  height: 30px;
-  width: 30px;
-  position: relative;
   cursor: pointer;
 }
 
-.exit div:after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  content: "\2573";
-  font-size: 25px;
-  color: #777777;
-  font-weight: normal;
+.content-cancelamento {
+  width: 100%;
 }
+
 .title {
   width: 100%;
   border-bottom: 1px solid #7c7c83;
@@ -107,128 +107,14 @@
   color: #333333;
   text-align: left;
   font-weight: 600;
-  font-size: 16px;
-}
-
-.info-cartao::-webkit-scrollbar,
-.modal-content-cancelamento::-webkit-scrollbar,
-.content-doc-cancelamento::-webkit-scrollbar {
-  width: 14px;
-}
-
-.info-cartao::-webkit-scrollbar-track,
-.modal-content-cancelamento::-webkit-scrollbar-track
-  .content-doc-cancelamento::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-.info-cartao::-webkit-scrollbar-thumb,
-.modal-content-cancelamento::-webkit-scrollbar-thumb,
-.content-doc-cancelamento::-webkit-scrollbar-thumb {
-  background-color: #c4cbcf;
-  border-radius: 20px;
-  border: 5px solid #fff;
-}
-
-.content-doc-cancelamento {
-  height: 319px;
-  border: 1px solid #ececec;
-  border-radius: 3px;
-  margin-bottom: 15px;
-  overflow: auto;
-  color: #333333;
-  text-align: left;
-  padding: 15px;
-}
-.doc-cancelamento .content-doc-cancelamento .title-doc-cancelamento {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.actions-cancelamento {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-.actions-cancelamento button {
-  width: 152px;
-  height: 40px;
-  border: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #00995d;
-  font-size: 16px;
-}
-
-.actions-cancelamento .btn-cancelar {
-  color: #777777;
-  border: 1px solid #777777;
-  background: #fff;
-}
-
-.actions-cancelamento .btn-cancelar::after {
-  content: "Cancelar";
-}
-
-.actions-cancelamento .btn-cancelar:hover:after {
-  content: "Voltar";
-}
-
-.actions-cancelamento .btn-cancelar:hover {
-  background: #ececec;
-  box-shadow: 0px 3px 6px #00000029;
-}
-
-.actions-cancelamento .btn-enviar:hover {
-  background: #411564;
-}
-
-/* REPONSIVE */
-.modal-content-cancelamento-responsive {
-  width: 100%;
-  max-width: 1000px;
-  height: 844px;
-  background: #fff;
-  position: relative;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  overflow-y: auto;
-  display: none;
-}
-
-.modal-header-responsive {
-  border-bottom: 1px solid #7c7c83;
-}
-.modal-header-responsive > h1 {
-  font-size: 18px;
-  color: #00995d;
-  font-weight: bold;
-}
-.exit-responsive {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.exit-responsive span::before {
-  content: "\2573";
-  font-size: 20px;
-  display: flex;
-  justify-content: flex-end;
-  color: #777777;
-  cursor: pointer;
+  font-size: 15px;
 }
 
 .list-beneficiarios-responsive {
+  display: none;
   padding: 10px 10px;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 200px;
   border-bottom: 1px solid #7c7c83;
   margin-bottom: 10px;
 }
@@ -245,6 +131,30 @@
   font-weight: bold;
   font-size: 14px;
 }
+.list-beneficiarios-responsive::-webkit-scrollbar,
+.aviso-responsive-container::-webkit-scrollbar,
+.info-cartao::-webkit-scrollbar,
+.modal-content-cancelamento::-webkit-scrollbar,
+.content-doc-cancelamento::-webkit-scrollbar {
+  width: 14px;
+}
+.list-beneficiarios-responsive::-webkit-scrollbar-track,
+.aviso-responsive-container::-webkit-scrollbar-track,
+.info-cartao::-webkit-scrollbar-track,
+.modal-content-cancelamento::-webkit-scrollbar-track
+  .content-doc-cancelamento::-webkit-scrollbar-track {
+  background: #fff;
+}
+.list-beneficiarios-responsive::-webkit-scrollbar-thumb,
+.aviso-responsive-container::-webkit-scrollbar-thumb,
+.info-cartao::-webkit-scrollbar-thumb,
+.modal-content-cancelamento::-webkit-scrollbar-thumb,
+.content-doc-cancelamento::-webkit-scrollbar-thumb {
+  background-color: #c4cbcf;
+  border-radius: 20px;
+  border: 5px solid #fff;
+}
+
 .divider-list-beneficiarios-responsive {
   display: flex;
   align-items: center;
@@ -253,75 +163,6 @@
   margin: 10px 0px;
   width: 100%;
   background-color: #00000029;
-}
-
-.content-cancelamento-responsive {
-  width: 100%;
-}
-
-.title-responsive {
-  width: 100%;
-  border-bottom: 1px solid #7c7c83;
-}
-.title-responsive div {
-  width: 92%;
-}
-.title-responsive > div > h1 {
-  text-align: left;
-  color: #00995d;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.aviso-responsive {
-  font-size: 15px;
-  font-weight: 600;
-  color: #333333;
-}
-
-.aviso-responsive-container {
-  border: 1px solid #ececec;
-  height: 300px;
-  border-radius: 3px;
-  width: 100%;
-  overflow: auto;
-  padding: 5px;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.title-doc-cancelamento-responsive {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.responsive-terms label:nth-child(2) {
-  font-size: 14px !important;
-}
-
-.label-doc-cancelamento {
-  color: #333333;
-  text-align: left;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.list::-webkit-scrollbar,
-.aviso-responsive-container::-webkit-scrollbar {
-  width: 14px;
-}
-
-.list::-webkit-scrollbar-track,
-.aviso-responsive-container::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-.list::-webkit-scrollbar-thumb,
-.aviso-responsive-container::-webkit-scrollbar-thumb {
-  background-color: #c4cbcf;
-  border-radius: 20px;
-  border: 5px solid #fff;
 }
 
 .content-doc-cancelamento {
@@ -386,6 +227,29 @@
     display: flex;
   }
   .modal-content-cancelamento {
+    height: 944px;
+    padding: 10px;
+  }
+
+  .info-cartao {
     display: none;
+  }
+  .list-beneficiarios-responsive {
+    display: block;
+  }
+  .title > div > h1 {
+    font-size: 18px;
+  }
+
+  .label-doc-cancelamento,
+  .title-doc-cancelamento,
+  .doc-cancelamento {
+    font-size: 14px !important;
+  }
+  .responsive-terms label:nth-child(2) {
+    font-size: 14px !important;
+  }
+  .content-doc-cancelamento {
+    height: 319px;
   }
 }

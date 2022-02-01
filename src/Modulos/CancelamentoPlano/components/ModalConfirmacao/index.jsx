@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import Responsive from "./responsive";
-import Responsives from "./desktop";
+import ConteudoModal from "./conteudoModal";
 import "./styles.css";
 
 const ModalConfirmacao = ({ beneficiarios, handleClose }) => {
-  const [terms, setTerms] = useState();
+  const [terms, setTerms] = useState(false);
 
   const [errTerms, setErrorTerms] = useState(false);
 
   const handleTerms = ({ target }) => {
     setErrorTerms(false);
-    setTerms(target.checked);
+    setTerms(!terms);
   };
 
   const handleEnviar = () => {
@@ -27,19 +26,13 @@ const ModalConfirmacao = ({ beneficiarios, handleClose }) => {
 
   return (
     <div className="modal-container">
-      <Responsive
+      <ConteudoModal
         beneficiarios={beneficiarios}
         handleClose={handleClose}
         handleTerms={handleTerms}
         handleEnviar={handleEnviar}
         errTerms={errTerms}
-      />
-      <Responsives
-        beneficiarios={beneficiarios}
-        handleClose={handleClose}
-        handleTerms={handleTerms}
-        handleEnviar={handleEnviar}
-        errTerms={errTerms}
+        terms={terms}
       />
     </div>
   );
