@@ -73,6 +73,10 @@
   padding: 30px;
 }
 
+.selected td {
+  background-color: #e7f0ce;
+}
+
 .cancelamento-plano-tabela tr:nth-child(2n) {
   background-color: #f8f8f8;
   border-top: #c4cbcf 1px solid;
@@ -123,4 +127,47 @@
   font-family: "Unimed Sans Bold";
   font-size: 18px;
   color: #00995d;
+}
+
+.container-check label {
+  cursor: pointer;
+}
+
+.container-check {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.container-check label input[type="checkbox"] {
+  display: none;
+  cursor: pointer;
+}
+
+.container-check label .content-check {
+  border: 1px solid #00995d;
+  height: 22px;
+  width: 22px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container-check label input[type="checkbox"]:checked ~ .content-check div {
+  width: 16px;
+  height: 16px;
+  background-color: #00995d;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.label-check {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }

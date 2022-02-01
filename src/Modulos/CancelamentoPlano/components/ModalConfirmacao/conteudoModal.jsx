@@ -32,7 +32,7 @@ const ConteudoModal = ({
                 <>
                   <div>
                     <span>Número do cartão</span>
-                    <span>{bene.numeroCartao}</span>
+                    <span>{bene.cartao}</span>
                   </div>
                   <div>
                     <span>Nome</span>
@@ -63,7 +63,7 @@ const ConteudoModal = ({
                 beneficiarios.map((beneficiario, index) => {
                   return (
                     <tr key={index + 1}>
-                      <td>{beneficiario.numeroCartao}</td>
+                      <td>{beneficiario.cartao}</td>
                       <td>{beneficiario.nome}</td>
                       <td>{beneficiario.relacao}</td>
                     </tr>

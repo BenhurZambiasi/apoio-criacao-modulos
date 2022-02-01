@@ -39,6 +39,9 @@ const RN_MSG_OCORREU_ERRO = {
 const App = () => {
   const [message, setMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [beneficiariosSelecionados, setBeneficiariosSelecionados] = useState(
+    []
+  );
 
   const [tipoFormulario, setTipoFormulario] = useState(
     "ConfirmacaoContatoEmpresa"
@@ -65,36 +68,12 @@ const App = () => {
   const openModal = () => {
     setShowModal(true);
   };
+
   return (
     <>
       {showModal && (
         <ModalConfirmacao
-          beneficiarios={[
-            {
-              numeroCartao: "000654531054",
-              nome: "Paulo R B Ventura",
-              dataNascimento: "14/01/2019",
-              relacao: "Titular",
-            },
-            {
-              numeroCartao: "000654531014",
-              nome: "Paulo 2",
-              dataNascimento: "14/01/2019",
-              relacao: "Dependente",
-            },
-            {
-              numeroCartao: "000654531024",
-              nome: "Paulo 3",
-              relacao: "Dependente",
-              dataNascimento: "14/01/2019",
-            },
-            {
-              numeroCartao: "000654531034",
-              nome: "Paulo 4",
-              relacao: "Dependente",
-              dataNascimento: "14/01/2019",
-            },
-          ]}
+          beneficiarios={beneficiariosSelecionados}
           handleClose={handleClose}
         />
       )}
@@ -105,6 +84,34 @@ const App = () => {
         <Solicitacao
           setTipoFormulario={setTipoFormulario}
           openModal={openModal}
+          beneficiariosSelecionados={beneficiariosSelecionados}
+          setBeneficiariosSelecionados={setBeneficiariosSelecionados}
+          beneficiarios={[
+            {
+              cartao: "000654531054",
+              nome: "Paulo R B Ventura",
+              dataNascimento: "14/01/2019",
+              relacao: "Titular",
+            },
+            {
+              cartao: "000654531014",
+              nome: "Paulo 2",
+              dataNascimento: "14/01/2019",
+              relacao: "Dependente",
+            },
+            {
+              cartao: "000654531024",
+              nome: "Paulo 3",
+              dataNascimento: "14/01/2019",
+              relacao: "Dependente",
+            },
+            {
+              cartao: "000654531034",
+              nome: "Paulo 4",
+              dataNascimento: "14/01/2019",
+              relacao: "Dependente",
+            },
+          ]}
         />
       )}
       {!message && tipoFormulario === "ConfirmacaoContatoEmpresa" && (

@@ -3,7 +3,12 @@ import AtencaoIcon from "../../assets/icons/icone_atencao_orange.svg";
 import Formulario from "./Formulario";
 import SelecaoBeneficiarios from "./SelecaoBeneficiarios";
 
-const Solicitacao = ({ openModal }) => {
+const Solicitacao = ({
+  openModal,
+  beneficiariosSelecionados,
+  setBeneficiariosSelecionados,
+  beneficiarios,
+}) => {
   return (
     <>
       <div className="cancelamento-plano-container-titulo">
@@ -24,31 +29,16 @@ const Solicitacao = ({ openModal }) => {
           </p>
         </div>
         <SelecaoBeneficiarios
-          beneficiarios={[
-            {
-              cartao: "000654531054",
-              nome: "Paulo R B Ventura",
-              dataNascimento: "14/01/2019",
-            },
-            {
-              cartao: "000654531014",
-              nome: "Paulo 2",
-              dataNascimento: "14/01/2019",
-            },
-            {
-              cartao: "000654531024",
-              nome: "Paulo 3",
-              dataNascimento: "14/01/2019",
-            },
-            {
-              cartao: "000654531034",
-              nome: "Paulo 4",
-              dataNascimento: "14/01/2019",
-            },
-          ]}
+          beneficiariosSelecionados={beneficiariosSelecionados}
+          setBeneficiariosSelecionados={setBeneficiariosSelecionados}
+          beneficiarios={beneficiarios}
         />
 
-        <Formulario openModal={openModal} />
+        <Formulario
+          openModal={openModal}
+          beneficiarios={beneficiarios}
+          beneficiariosSelecionados={beneficiariosSelecionados}
+        />
       </div>
     </>
   );
