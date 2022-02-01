@@ -14,7 +14,7 @@ const formPessoFisica = Yup.object({
     .min(14, MSG_TELEFONE_INVALIDO),
 });
 
-const Formulario = () => {
+const Formulario = ({ openModal }) => {
   return (
     <Formik
       validationSchema={formPessoFisica}
@@ -24,8 +24,7 @@ const Formulario = () => {
       }}
       onSubmit={(values, action) => {
         debugger;
-      }}
-    >
+      }}>
       {({
         values,
         errors,
@@ -89,7 +88,10 @@ const Formulario = () => {
             após anaálise da Unimed.
           </p>
           <div className="cancelamento-plano-footer-botoes">
-            <button className="btn-unimed btn-unimed--green" type="submit">
+            <button
+              className="btn-unimed btn-unimed--green"
+              type="submit"
+              onClick={openModal}>
               SOLICITAR
             </button>
           </div>

@@ -15,6 +15,8 @@ const ModalConfirmacao = ({ beneficiarios, handleClose }) => {
   const handleEnviar = () => {
     if (!terms) {
       setErrorTerms(true);
+    } else {
+      handleClose();
     }
   };
 
