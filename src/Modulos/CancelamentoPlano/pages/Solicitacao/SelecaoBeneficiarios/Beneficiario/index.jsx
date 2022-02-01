@@ -14,18 +14,41 @@ const Beneficiario = (props) => {
       <td className={`col-md-1`}>
         <div className={`container-check`}>
           <label htmlFor={beneficiario.cartao}>
-            <input
-              type="checkbox"
-              id={beneficiario.cartao}
-              onChange={() => handleCheck(beneficiario)}
-              checked={
-                beneficiariosSelecionados.some(
-                  (item) => item.cartao === beneficiario.cartao
-                )
-                  ? true
-                  : false
-              }
-            />
+            {beneficiario.relacao !== "Titular" ? (
+              <input
+                type="checkbox"
+                disabled={
+                  beneficiariosSelecionados.some(
+                    (item) => item.relacao === "Titular"
+                  )
+                    ? true
+                    : false
+                }
+                id={beneficiario.cartao}
+                onChange={() => handleCheck(beneficiario)}
+                checked={
+                  beneficiariosSelecionados.some(
+                    (item) => item.cartao === beneficiario.cartao
+                  )
+                    ? true
+                    : false
+                }
+              />
+            ) : (
+              <input
+                type="checkbox"
+                id={beneficiario.cartao}
+                onChange={() => handleCheck(beneficiario)}
+                checked={
+                  beneficiariosSelecionados.some(
+                    (item) => item.cartao === beneficiario.cartao
+                  )
+                    ? true
+                    : false
+                }
+              />
+            )}
+
             <div className={`content-check`}>
               <div></div>
             </div>
