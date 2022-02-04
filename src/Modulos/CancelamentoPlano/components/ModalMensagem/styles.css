@@ -3,191 +3,110 @@
   height: 100%;
   width: 100%;
   top: 0;
-  position: absolute;
+  position: fixed;
   padding: 10px;
   display: flex;
   justify-content: center;
 }
 
-.modal-content-cancelamento {
-  width: 1000px;
+.modal-content-mensagem {
+  top: 150px;
+  width: 450px;
   background: #fff;
-  height: 844px;
+  height: 405px;
   position: relative;
   border-radius: 8px;
   display: flex;
+  padding: 21px 29px;
+  display: flex;
+  flex-direction: column;
   transform: translateY(-600px);
-  animation: animeLeft 1s forwards !important;
+  animation: animation 0.5s forwards !important;
 }
 
-@keyframes animeLeft {
+.close-message {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.close-message span::before {
+  content: "\2573";
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+  color: #777777;
+  cursor: pointer;
+}
+
+.icon_check {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 29px;
+}
+.icon_check > img {
+  height: 60px;
+  color: #00995d;
+}
+.mensagem {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 29px;
+}
+.mensagem p {
+  color: #00401a;
+  font-size: 18px;
+  font-weight: bold;
+}
+.protocolo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+.informacao {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #333333;
+}
+
+@media (max-width: 768px) {
+  .modal-content-mensagem {
+    width: 340px;
+    height: 380px;
+    padding: 21px 26px;
+  }
+  .icon_check {
+    margin-bottom: 20px;
+  }
+  .icon_check > img {
+    height: 50px;
+  }
+  .mensagem {
+    padding: 0px 21px;
+  }
+  .mensagem p {
+    font-size: 16px;
+  }
+  .protocolo {
+    font-size: 16px;
+  }
+  .informacao {
+    font-size: 15px;
+  }
+}
+
+@keyframes animation {
   to {
     opacity: initial;
     transform: initial;
   }
-}
-.content-cancelamento {
-  width: 100%;
-  margin-top: 58px;
-  padding-left: 40px;
-}
-
-.exit {
-  text-transform: uppercase;
-  display: flex;
-  justify-content: flex-end;
-  color: #777777;
-  margin-top: 2px;
-}
-.exit div {
-  height: 50px;
-  width: 50px;
-  position: relative;
-  cursor: pointer;
-}
-
-.exit div:after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  content: "\2573";
-  font-size: 25px;
-  color: #777777;
-  font-weight: normal;
-}
-.title {
-  width: 100%;
-  border-bottom: 1px solid #7c7c83;
-}
-.title div {
-  width: 92%;
-}
-.title > div > h1 {
-  text-align: left;
-  color: #00995d;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.info-cartao {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 35px;
-  margin-bottom: 46px;
-  height: 150px;
-  overflow: auto;
-}
-
-.info-cartao .table-bene-cancelamento {
-  width: 800px;
-  table-layout: fixed;
-}
-.thead-bene-cancelamento > tr > th {
-  text-align: left;
-  padding: 10px 40px;
-  color: #333333;
-  font-size: 16px;
-}
-
-.thead-bene-cancelamento > tr > {
-  display: block;
-  position: relative;
-}
-.tbody-bene-cancelamento > tr:first-child td {
-  padding-top: 25px;
-  text-align: left;
-}
-.tbody-bene-cancelamento > tr > td {
-  text-align: left;
-  padding: 0px 40px;
-  color: #333333;
-  font-size: 14px;
-}
-
-.tbody-bene-cancelamento tr:first-child {
-  border-top: 1px solid #c4cbcf;
-}
-
-.label-doc-cancelamento {
-  color: #333333;
-  text-align: left;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.info-cartao::-webkit-scrollbar,
-.content-doc-cancelamento::-webkit-scrollbar {
-  width: 12px;
-}
-
-.info-cartao::-webkit-scrollbar-track,
-.content-doc-cancelamento::-webkit-scrollbar-track {
-  background: #fff;
-}
-
-.info-cartao::-webkit-scrollbar-thumb,
-.content-doc-cancelamento::-webkit-scrollbar-thumb {
-  background-color: #c4cbcf;
-  border-radius: 20px;
-  border: 3px solid #fff;
-}
-
-.content-doc-cancelamento {
-  height: 319px;
-  border: 1px solid #ececec;
-  border-radius: 3px;
-  margin-bottom: 15px;
-  overflow: auto;
-  color: #333333;
-  text-align: left;
-  padding: 15px;
-}
-.doc-cancelamento .content-doc-cancelamento .title-doc-cancelamento {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.actions-cancelamento {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-.actions-cancelamento button {
-  width: 152px;
-  height: 40px;
-  border: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #00995d;
-  font-size: 16px;
-}
-
-.actions-cancelamento .btn-cancelar {
-  color: #777777;
-  border: 1px solid #777777;
-  background: #fff;
-}
-
-.actions-cancelamento .btn-cancelar::after {
-  content: "Cancelar";
-}
-
-.actions-cancelamento .btn-cancelar:hover:after {
-  content: "Voltar";
-}
-
-.actions-cancelamento .btn-cancelar:hover {
-  background: #ececec;
-  box-shadow: 0px 3px 6px #00000029;
-}
-
-.actions-cancelamento .btn-enviar:hover {
-  background: #411564;
 }

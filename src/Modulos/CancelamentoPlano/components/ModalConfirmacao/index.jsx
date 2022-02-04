@@ -27,7 +27,7 @@ const ModalConfirmacao = ({ beneficiarios, handleClose }) => {
   });
 
   return (
-    <div className="modal-container">
+    <div className="modal-container-teste">
       <ConteudoModal
         beneficiarios={beneficiarios}
         handleClose={handleClose}

@@ -5,6 +5,7 @@ const SelecaoBeneficiarios = ({
   beneficiarios,
   beneficiariosSelecionados = [],
   setBeneficiariosSelecionados,
+  errorSelecao,
 }) => {
   const handleCheck = (beneficiarioItem) => {
     let list = [...beneficiariosSelecionados];
@@ -45,6 +46,7 @@ const SelecaoBeneficiarios = ({
           beneficiario={beneficiario}
           handleCheck={handleCheck}
           beneficiariosSelecionados={beneficiariosSelecionados}
+          errorSelecao={errorSelecao}
         />
       ))}
     </table>

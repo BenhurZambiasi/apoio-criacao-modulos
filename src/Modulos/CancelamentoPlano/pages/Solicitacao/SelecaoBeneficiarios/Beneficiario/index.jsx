@@ -2,7 +2,8 @@ import React from "react";
 import "../../../../style.css";
 
 const Beneficiario = (props) => {
-  const { beneficiario, handleCheck, beneficiariosSelecionados } = props;
+  const { beneficiario, handleCheck, beneficiariosSelecionados, errorSelecao } =
+    props;
 
   return (
     <tr
@@ -49,7 +50,7 @@ const Beneficiario = (props) => {
               />
             )}
 
-            <div className={`content-check`}>
+            <div className={`content-check ${errorSelecao && "error"}`}>
               <div></div>
             </div>
           </label>

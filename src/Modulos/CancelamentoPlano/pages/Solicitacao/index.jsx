@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AtencaoIcon from "../../assets/icons/icone_atencao_orange.svg";
 import Formulario from "./Formulario";
 import SelecaoBeneficiarios from "./SelecaoBeneficiarios";
@@ -9,6 +9,7 @@ const Solicitacao = ({
   setBeneficiariosSelecionados,
   beneficiarios,
 }) => {
+  const [errorSelecao, setErrorSelecao] = useState();
   return (
     <>
       <div className="cancelamento-plano-container-titulo">
@@ -32,12 +33,15 @@ const Solicitacao = ({
           beneficiariosSelecionados={beneficiariosSelecionados}
           setBeneficiariosSelecionados={setBeneficiariosSelecionados}
           beneficiarios={beneficiarios}
+          errorSelecao={errorSelecao}
         />
 
         <Formulario
           openModal={openModal}
           beneficiarios={beneficiarios}
           beneficiariosSelecionados={beneficiariosSelecionados}
+          setErrorSelecao={setErrorSelecao}
+          errorSelecao={errorSelecao}
         />
       </div>
     </>

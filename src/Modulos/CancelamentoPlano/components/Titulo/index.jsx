@@ -8,6 +8,7 @@ const Titulo = () => {
       <p>
         solicitação de cancelamento, pois o plano contratado é <b>XXXXX</b>.
       </p>
+      <input type="date" name="" id="" />
     </div>
   );
 };

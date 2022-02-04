@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { telefoneMask } from "../../../components/Mask";
@@ -18,7 +18,14 @@ const Formulario = ({
   openModal,
   beneficiarios,
   beneficiariosSelecionados,
+  errorSelecao,
+  setErrorSelecao,
 }) => {
+  useEffect(() => {
+    if (beneficiariosSelecionados.length > 0) {
+      setErrorSelecao("");
+    }
+  }, [beneficiariosSelecionados]);
   return (
     <Formik
       validationSchema={formPessoFisica}
@@ -28,19 +35,10 @@ const Formulario = ({
       }}
       onSubmit={(values, action) => {
         if (beneficiariosSelecionados.length > 0) {
-          if (
-            beneficiariosSelecionados.some(
-              (element) => element.relacao === "Titular"
-            )
-          ) {
-            if (beneficiariosSelecionados.length < beneficiarios.length) {
-              console.log("ERROR");
-            } else {
-              openModal();
-            }
-          } else {
-            openModal();
-          }
+          openModal();
+          setErrorSelecao("");
+        } else {
+          setErrorSelecao("Selecione pelo menos um cartão");
         }
       }}>
       {({
@@ -105,6 +103,7 @@ const Formulario = ({
             Solicitações encaminhadas estarão disponíveis para acompanhamento
             após anaálise da Unimed.
           </p>
+          <div className="errorSelecao">{errorSelecao}</div>
           <div className="cancelamento-plano-footer-botoes">
             <button className="btn-unimed btn-unimed--green" type="submit">
               SOLICITAR

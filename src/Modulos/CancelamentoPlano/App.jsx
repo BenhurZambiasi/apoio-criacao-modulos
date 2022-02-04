@@ -6,6 +6,7 @@ import Solicitacao from "./pages/Solicitacao";
 import ConfirmacaoContatoEmpresa from "./pages/ConfirmacaoContatoEmpresa";
 import ConfirmacaoDataContatoEmpresa from "./pages/ConfirmacaoDataContatoEmpresa";
 import ModalConfirmacao from "./components/ModalConfirmacao";
+import ModalMensagem from "./components/ModalMensagem";
 
 import "./style.css";
 
@@ -39,6 +40,7 @@ const RN_MSG_OCORREU_ERRO = {
 const App = () => {
   const [message, setMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [showModalMensagem, setShowModalMensagem] = useState(false);
   const [beneficiariosSelecionados, setBeneficiariosSelecionados] = useState(
     []
   );
@@ -65,12 +67,26 @@ const App = () => {
   const handleClose = () => {
     setShowModal(false);
   };
+
+  const handleCloseModalMensagem = () => {
+    setShowModalMensagem(false);
+  };
   const openModal = () => {
     setShowModal(true);
   };
 
+  const openModalMensagem = () => {
+    setShowModalMensagem(true);
+  };
+
   return (
     <>
+      {showModalMensagem && (
+        <ModalMensagem
+          protocolo="12345789"
+          handleClose={handleCloseModalMensagem}
+        />
+      )}
       {showModal && (
         <ModalConfirmacao
           beneficiarios={beneficiariosSelecionados}
@@ -150,7 +166,11 @@ const App = () => {
         ]}
       />
       <div className="cancelamento-plano-footer-botoes">
-        <button className="btn-unimed btn-unimed--green">VOLTAR</button>
+        <button
+          className="btn-unimed btn-unimed--green"
+          onClick={openModalMensagem}>
+          VOLTAR
+        </button>
       </div>
     </>
   );
