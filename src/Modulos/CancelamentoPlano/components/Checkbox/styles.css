@@ -42,6 +42,7 @@
 }
 
 .error {
+  border: 1px solid;
   border-color: red !important;
   color: red;
 }
