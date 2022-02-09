@@ -18,46 +18,50 @@ import {
 
 import "./style.css";
 
-// const RN_MSG_SOMENTE_TITULAR_CANCALAMENTO = {
-//   type: "warning",
-//   text: `Somente o titular pode solicitar o
-//    cancelamento do plano de saúde.`,
-// };
-// const RN_MSG_PLANO_NAO_REGULAMENTADO = {
-//   type: "warning",
-//   text: `Somente planos regulamentados possuem
-//    a opção de cancelamento pelo sistema.
-//    Para mais informações entre em contato
-//    com a sua Unimed.`,
-// };
-// const RN_MSG_SOLICITACAO_DEVE_AGUARDAR_30_DIAS = {
-//   type: "warning",
-//   text: `A solicitação pela internet somente poderá ser realizada
-//   30 dias após a solicitação para a sua empresa.`,
-// };
-// const RN_MSG_DEVE_COMUNICAR_SUA_EMPRESA = {
-//   type: "warning",
-//   text: `Inicialmente você deve comunicar sua empresa
-//   para solicitar o cancelamento do plano.`,
-// };
-// const RN_MSG_OCORREU_ERRO = {
-//   type: "error",
-//   text: `Ocorreu um erro durante o processamento`,
-// };
-
 const App = () => {
   const [message, setMessage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showModalMensagem, setShowModalMensagem] = useState(false);
+  const [benefiarios, setBenefiarios] = useState([]);
   const [beneficiariosSelecionados, setBeneficiariosSelecionados] = useState(
     []
   );
+  const [hideHistorico, setHideHistorico] = useState(false);
 
   const [tipoFormulario, setTipoFormulario] = useState(
     "ConfirmacaoContatoEmpresa"
   );
 
   useEffect(() => {
+    (() => {
+      let aux = [
+        {
+          cartao: "000654531054",
+          nome: "Paulo R B Ventura",
+          dataNascimento: "14/01/2019",
+          relacao: "Titular",
+        },
+        {
+          cartao: "000654531014",
+          nome: "Paulo 2",
+          dataNascimento: "14/01/2019",
+          relacao: "Dependente",
+        },
+        {
+          cartao: "000654531024",
+          nome: "Paulo 3",
+          dataNascimento: "14/01/2019",
+          relacao: "Dependente",
+        },
+        {
+          cartao: "000654531034",
+          nome: "Paulo 4",
+          dataNascimento: "14/01/2019",
+          relacao: "Dependente",
+        },
+      ];
+      setBenefiarios(aux);
+    })();
     const fetchRegrasNegocio = () => {
       /*Criar abaixo a validação das regras, basta dar um setMessage com a regra para tela bloquear*/
       //RN_MSG_SOMENTE_TITULAR_CANCELAMENTO
@@ -88,7 +92,7 @@ const App = () => {
   };
 
   return (
-    <>
+    <div className="container-cancelamento">
       {showModalMensagem && (
         <ModalMensagem
           protocolo="12345789"
@@ -97,8 +101,12 @@ const App = () => {
       )}
       {showModal && (
         <ModalConfirmacao
-          beneficiarios={beneficiariosSelecionados}
+          beneficiariosSelecionados={beneficiariosSelecionados}
+          setBeneficiariosSelecionados={setBeneficiariosSelecionados}
+          beneficiarios={benefiarios}
           handleClose={handleClose}
+          setBenefiarios={setBenefiarios}
+          openModalMensagem={openModalMensagem}
         />
       )}
       <Titulo />
@@ -107,76 +115,43 @@ const App = () => {
       {!message && tipoFormulario === "Solicitacao" && (
         <Solicitacao
           setTipoFormulario={setTipoFormulario}
+          setMessage={setMessage}
           openModal={openModal}
           beneficiariosSelecionados={beneficiariosSelecionados}
           setBeneficiariosSelecionados={setBeneficiariosSelecionados}
-          beneficiarios={[
-            {
-              cartao: "000654531054",
-              nome: "Paulo R B Ventura",
-              dataNascimento: "14/01/2019",
-              relacao: "Titular",
-            },
-            {
-              cartao: "000654531014",
-              nome: "Paulo 2",
-              dataNascimento: "14/01/2019",
-              relacao: "Dependente",
-            },
-            {
-              cartao: "000654531024",
-              nome: "Paulo 3",
-              dataNascimento: "14/01/2019",
-              relacao: "Dependente",
-            },
-            {
-              cartao: "000654531034",
-              nome: "Paulo 4",
-              dataNascimento: "14/01/2019",
-              relacao: "Dependente",
-            },
-          ]}
+          beneficiarios={benefiarios}
         />
       )}
+
       {!message && tipoFormulario === "ConfirmacaoContatoEmpresa" && (
-        <ConfirmacaoContatoEmpresa setTipoFormulario={setTipoFormulario} />
+        <ConfirmacaoContatoEmpresa
+          setTipoFormulario={setTipoFormulario}
+          setMessage={setMessage}
+          setHideHistorico={setHideHistorico}
+        />
       )}
       {!message && tipoFormulario === "ConfirmacaoDataContatoEmpresa" && (
-        <ConfirmacaoDataContatoEmpresa setTipoFormulario={setTipoFormulario} />
+        <ConfirmacaoDataContatoEmpresa
+          setTipoFormulario={setTipoFormulario}
+          setMessage={setMessage}
+          setHideHistorico={setHideHistorico}
+        />
       )}
-
-      <HistoricoSolicitacoes
-        solicitacoes={[
-          {
-            cartao: "000654531054",
-            nome: "Paulo R B Ventura",
-            data: "14/01/2019",
-            protocolo: "054350254441",
-          },
-          {
-            cartao: "000654531054",
-            nome: "Paulo 2",
-            data: "14/01/2019",
-            protocolo: "054350254442",
-          },
-          {
-            cartao: "000654531054",
-            nome: "Paulo 3",
-            data: "14/01/2019",
-            protocolo: "054350254443",
-          },
-          {
-            cartao: "000654531054",
-            nome: "Paulo 4",
-            data: "14/01/2019",
-            protocolo: "054350254444",
-          },
-        ]}
-      />
-      <div className="cancelamento-plano-footer-botoes">
-        <button className="btn-unimed btn-unimed--green">VOLTAR</button>
-      </div>
-    </>
+      {/* {!hideHistorico && <HistoricoSolicitacoes solicitacoes={[]} />} */}
+      {tipoFormulario !== "Solicitacao" &&
+      tipoFormulario !== "ConfirmacaoDataContatoEmpresa" ? (
+        <div className="cancelamento-plano-footer-botoes">
+          <button
+            className="btn-unimed btn-unimed--green"
+            onClick={() => {
+              setHideHistorico(false);
+              setMessage(null);
+            }}>
+            VOLTAR
+          </button>
+        </div>
+      ) : null}
+    </div>
   );
 };
 

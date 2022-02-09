@@ -1,11 +1,21 @@
-.cancelamento-plano-mensagem p {
-  white-space: pre-line;
+.container-cancelamento {
+  padding: 10px;
+}
+.cancelamento-plano-mensagem {
+  width: 100%;
   display: flex;
-  text-align: center;
   justify-content: center;
-  padding-top: 25px;
+  flex-direction: column;
+}
+.cancelamento-plano-mensagem .cancelamento-plano-mensagem-contente {
+  width: 100%;
+  max-width: 450px;
+}
+
+.cancelamento-plano-mensagem p {
   font-size: 24px;
   font-family: "Unimed Slab";
+  text-align: center;
 }
 
 .cancelamento-plano-mensagem-warning {
@@ -14,6 +24,7 @@
 
 .cancelamento-plano-mensagem-info {
   color: #00995d;
+  text-align: left;
 }
 
 .cancelamento-plano-mensagem-erro {
@@ -42,15 +53,12 @@
   width: 40px;
 }
 
-.cancelamento-plano-mensagem {
-  padding-top: 20px;
-}
-
 .cancelamento-plano-footer-botoes {
   padding-top: 25px;
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 40px;
 }
 
 .cancelamento-plano-tabela {
@@ -86,24 +94,26 @@
 
 .cancelamento-plano-titulo {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cancelamento-plano-titulo h1 {
   font-family: "Unimed Slab Bold";
   font-size: 30px;
   padding-bottom: 14px;
+  font-weight: bold;
   color: #333333;
 }
 
-.cancelamento-plano-titulo p {
-  font-family: "Unimed Slab";
-  line-height: 5px;
-  font-size: 18px;
-  color: #7c7c83;
+.cancelamento-plano-titulo .cancelamento-plano-title-message {
+  width: 100%;
+  max-width: 450px;
 }
-
-.cancelamento-plano-titulo b {
-  font-family: "Unimed Slab Bold";
+.cancelamento-plano-titulo .cancelamento-plano-title-message p {
+  font-family: "Unimed Slab";
   font-size: 18px;
   color: #7c7c83;
 }
@@ -119,14 +129,22 @@
 }
 
 .cancelamento-plano-container-page {
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
 .cancelamento-plano-titulo-green {
   font-family: "Unimed Sans Bold";
   font-size: 18px;
   color: #00995d;
+}
+
+.cancelamento-plano-historico-vazio {
+  text-align: center;
+  font: normal normal normal 22px/22px Unimed Slab;
+  letter-spacing: 0px;
+  color: #bcbcbc;
+  margin-top: 57px;
 }
 
 .container-check label {
@@ -136,12 +154,12 @@
 .container-check {
   display: flex;
   gap: 5px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .container-check label input[type="checkbox"] {
   display: none;
-  cursor: pointer;
+  cursor: default;
 }
 
 .container-check label .content-check {
@@ -156,6 +174,13 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+.container-check label .error {
+  border: 1px solid red;
+}
+
+.check-error-disabled {
+  cursor: default !important;
+}
 
 .container-check label input[type="checkbox"]:checked ~ .content-check div {
   width: 16px;
@@ -164,12 +189,19 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.container-check
+  label
+  input[type="checkbox"]:checked
+  ~ .content-check
+  .check-error-disabled {
+  background-color: #aaa;
+}
 
 .label-check {
   color: #333333;
   font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: default;
 }
 
 .errorSelecao {
@@ -178,7 +210,7 @@
   justify-content: center;
 }
 
-.containert-calendar {
+.container-calendar {
   display: flex;
   margin-left: 10px;
 }
@@ -198,6 +230,10 @@
   font-size: 14px;
   color: red;
   line-height: 0;
+}
+
+.error {
+  color: red;
 }
 
 .cancelamento-plano-data {
@@ -241,6 +277,7 @@
   color: #7c7c83;
   font-size: 14px;
 }
+
 .body_calendar {
   margin-left: 160px;
   width: 100%;
@@ -375,4 +412,171 @@
 .body_calendar_content_day_per .activeDay {
   background-color: #00995d;
   color: #fff;
+}
+
+.responsive-table-cancelamento {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /*Títlulo*/
+  .cancelamento-plano-titulo h1 {
+    font-size: 24px;
+  }
+  .cancelamento-plano-titulo .cancelamento-plano-title-message p {
+    font-size: 16px;
+  }
+  .cancelamento-plano-mensagem p {
+    white-space: normal;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    padding-top: 0px;
+  }
+  /*----------------------*/
+
+  /*Calendário*/
+  .container-calendar {
+    flex-direction: column;
+  }
+
+  .body_calendar {
+    max-width: 340px;
+    margin-top: 70px;
+    margin-left: -105px;
+  }
+
+  .select_month:nth-child(1),
+  .select_month:nth-child(2) {
+    width: 115px !important;
+    height: 31px !important;
+    border-radius: 17px !important;
+    font-size: 14px !important;
+    color: #333333 !important;
+    text-align: center;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #fff;
+  }
+
+  .select_month:nth-child(2) {
+    width: 92px !important;
+  }
+
+  .MuiSelect-select {
+    font-size: 14px !important;
+  }
+  /*----------------------*/
+
+  /* Solicitações */
+  .cancelamento-plano-container-titulo {
+    border-bottom: 1px solid #00995d;
+    margin: 0px;
+  }
+  .cancelamento-plano-container-titulo p {
+    margin: 0px;
+  }
+
+  .cancelamento-plano-container-page {
+    padding: 0px 5px;
+  }
+
+  .cancelamento-plano-container-page .cancelamento-plano-alerta p {
+    font-size: 14px;
+  }
+  /*----------------------*/
+
+  /*Formulário*/
+  .informe-telefone-titular {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+  }
+  #telefone {
+    margin-bottom: 10px;
+  }
+  .subtitle-formulario {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333333;
+  }
+  .subtitle-formulario ~ p {
+    font-size: 14px;
+    color: #333333;
+  }
+
+  .responsive-table-cancelamento {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .responsive-table-cancelamento-header {
+    display: flex;
+    gap: 37px;
+    font-family: 16px;
+    font-family: "Unimed Sans, Bold";
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .responsive-table-cancelamento-body {
+    margin-bottom: 35px;
+  }
+  .responsive-table-cancelamento-body section:nth-child(2n + 1) {
+    background-color: #f8f8f8;
+  }
+  .responsive-table-cancelamento-body .selected {
+    background-color: #e7f0ce !important;
+    padding: 5px;
+  }
+
+  .responsive-table-cancelamento-body-content {
+    display: flex;
+    gap: 37px;
+    font-family: 14px;
+    font-family: "Unimed Sans, Bold";
+    color: #333333;
+    margin: 5px 0px;
+    padding: 5px;
+  }
+  .responsive-table-cancelamento-body-content div:first-child {
+    width: 65px;
+    display: flex;
+    justify-content: center;
+  }
+  .responsive-table-cancelamento-body-content div:last-child {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .responsive-table-cancelamento-body-content
+    .responsive-table-cancelamento-body-content-infos
+    span:nth-child(3) {
+    color: #777777;
+  }
+  .responsive-table-cancelamento-body-content
+    .responsive-table-cancelamento-body-content-infos
+    span:nth-child(2) {
+    margin-bottom: 5px;
+  }
+  .responsive-table-cancelamento-body-content
+    .responsive-table-cancelamento-body-content-infos
+    span {
+    color: #333333;
+    font-size: 14px;
+  }
+
+  .divider-table-cancelamento {
+    height: 2px;
+    background-color: #ececec;
+  }
+
+  .cancelamento-plano-tabela {
+    display: none;
+  }
+
+  .container-check label .content-check {
+    height: 20px;
+    width: 20px;
+  }
 }

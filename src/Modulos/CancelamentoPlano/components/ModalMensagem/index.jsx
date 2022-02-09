@@ -8,7 +8,7 @@ const ModalMensagem = ({ handleClose, protocolo }) => {
     <div className="modal-container">
       <div className="modal-content-mensagem">
         <div className="close-message">
-          <span onClick={handleClose}></span>
+          <span onClick={() => handleClose()}></span>
         </div>
         <div className="icon_check">
           <img src={icon_check} alt="check" />

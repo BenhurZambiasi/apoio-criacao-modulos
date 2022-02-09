@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AtencaoIcon from "../../assets/icons/icone_atencao_orange.svg";
 import Formulario from "./Formulario";
 import SelecaoBeneficiarios from "./SelecaoBeneficiarios";
+import HistoricoSolicitacoes from "../HistoricoSolicitacoes";
 
 const Solicitacao = ({
   openModal,
@@ -10,8 +11,14 @@ const Solicitacao = ({
   beneficiarios,
 }) => {
   const [errorSelecao, setErrorSelecao] = useState();
+  const hasTitular = beneficiariosSelecionados.some(
+    (item) => item.relacao === "Titular"
+  )
+    ? true
+    : false;
+
   return (
-    <>
+    <div>
       <div className="cancelamento-plano-container-titulo">
         <p className="cancelamento-plano-titulo-green mb-0">
           Informações sobre o beneficiário
@@ -21,20 +28,25 @@ const Solicitacao = ({
         <p className="cancelamento-plano-titulo-green pt-3">
           Selecione o(s) beneficiários que deseja remover do plano
         </p>
-        <div className="cancelamento-plano-alerta">
-          <img src={AtencaoIcon} alt="Ícone de atenção" />
-          <p>
-            Será solicitado o cancelamento do plano para os beneficiários
-            selecionados. Caso os dependentes tenham interesse em permanecer no
-            plano, devem entrar em contato com a operadora.
-          </p>
+        {hasTitular && (
+          <div className="cancelamento-plano-alerta">
+            <img src={AtencaoIcon} alt="Ícone de atenção" />
+            <p>
+              Será solicitado o cancelamento do plano para os beneficiários
+              selecionados. Caso os dependentes tenham interesse em permanecer
+              no plano, devem entrar em contato com a operadora.
+            </p>
+          </div>
+        )}
+
+        <div>
+          <SelecaoBeneficiarios
+            beneficiariosSelecionados={beneficiariosSelecionados}
+            setBeneficiariosSelecionados={setBeneficiariosSelecionados}
+            beneficiarios={beneficiarios}
+            errorSelecao={errorSelecao}
+          />
         </div>
-        <SelecaoBeneficiarios
-          beneficiariosSelecionados={beneficiariosSelecionados}
-          setBeneficiariosSelecionados={setBeneficiariosSelecionados}
-          beneficiarios={beneficiarios}
-          errorSelecao={errorSelecao}
-        />
 
         <Formulario
           openModal={openModal}
@@ -43,8 +55,20 @@ const Solicitacao = ({
           setErrorSelecao={setErrorSelecao}
           errorSelecao={errorSelecao}
         />
+        <HistoricoSolicitacoes solicitacoes={[]} />
+        <div className="cancelamento-plano-footer-botoes">
+          <button
+            className="btn-unimed btn-unimed--green"
+            // onClick={() => {
+            //   setHideHistorico(false);
+            //   setMessage(null);
+            // }}
+          >
+            VOLTAR
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,17 @@ import "../../../../style.css";
 const Beneficiario = (props) => {
   const { beneficiario, handleCheck, beneficiariosSelecionados, errorSelecao } =
     props;
+  const disableTitular = beneficiariosSelecionados.some(
+    (item) => item.relacao === "Titular"
+  )
+    ? true
+    : false;
 
+  const checkedCartoa = beneficiariosSelecionados.some(
+    (item) => item.cartao === beneficiario.cartao
+  )
+    ? true
+    : false;
   return (
     <tr
       className={`${
@@ -13,27 +23,20 @@ const Beneficiario = (props) => {
         ) && "selected"
       }`}>
       <td className={`col-md-1`}>
-        <div className={`container-check`}>
+        <div
+          className={`container-check ${
+            beneficiario.relacao !== "Titular" &&
+            disableTitular &&
+            "check-error-disabled"
+          }`}>
           <label htmlFor={beneficiario.cartao}>
             {beneficiario.relacao !== "Titular" ? (
               <input
                 type="checkbox"
-                disabled={
-                  beneficiariosSelecionados.some(
-                    (item) => item.relacao === "Titular"
-                  )
-                    ? true
-                    : false
-                }
+                disabled={disableTitular}
                 id={beneficiario.cartao}
                 onChange={() => handleCheck(beneficiario)}
-                checked={
-                  beneficiariosSelecionados.some(
-                    (item) => item.cartao === beneficiario.cartao
-                  )
-                    ? true
-                    : false
-                }
+                checked={checkedCartoa}
               />
             ) : (
               <input
@@ -50,8 +53,16 @@ const Beneficiario = (props) => {
               />
             )}
 
-            <div className={`content-check ${errorSelecao && "error"}`}>
-              <div></div>
+            <div
+              className={`content-check ${errorSelecao && "error"} ${
+                disableTitular && "check-error-disabled"
+              } `}>
+              <div
+                className={`${
+                  beneficiario.relacao !== "Titular" &&
+                  disableTitular &&
+                  "check-error-disabled"
+                }`}></div>
             </div>
           </label>
         </div>

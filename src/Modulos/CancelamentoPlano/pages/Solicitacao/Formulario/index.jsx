@@ -55,7 +55,9 @@ const Formulario = ({
         validateForm,
       }) => (
         <form onSubmit={handleSubmit}>
-          <h4>Informe o telefone do títular</h4>
+          <h4 className="informe-telefone-titular">
+            Informe o telefone do títular
+          </h4>
           <div className="row">
             <div className="form-group col-md-5 col-sm-12 col-xl-4">
               <label for="telefone">Telefone*</label>
@@ -98,13 +100,16 @@ const Formulario = ({
               )}
             </div>
           </div>
-          <p>Observações</p>
+          <p className="subtitle-formulario">Observações</p>
           <p>
             Solicitações encaminhadas estarão disponíveis para acompanhamento
-            após anaálise da Unimed.
+            após análise da Unimed.
           </p>
           <div className="errorSelecao">{errorSelecao}</div>
           <div className="cancelamento-plano-footer-botoes">
+            {/* <button className="btn-unimed btn-unimed--green" type="submit">
+              VOLTAR
+            </button> */}
             <button className="btn-unimed btn-unimed--green" type="submit">
               SOLICITAR
             </button>

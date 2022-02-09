@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { format, addDays } from "date-fns";
 import { MenuItem, Select } from "@material-ui/core";
 import InputMask from "react-input-mask";
+import Expand from "@material-ui/icons/ExpandMoreOutlined";
 
 import {
   DAYS_OF_WEEK,
@@ -65,7 +66,7 @@ const Calendario = ({ setData, errorDate, setErrorDate }) => {
     setErrorDate("");
   };
   return (
-    <div className="containert-calendar">
+    <div className="container-calendar">
       <div className="cancelamento-plano-data-container">
         <div className="cancelamento-plano-data">
           <div
@@ -101,6 +102,7 @@ const Calendario = ({ setData, errorDate, setErrorDate }) => {
                 className="select_month"
                 margin="dense"
                 value={monthSelected}
+                IconComponent={Expand}
                 onChange={({ target }) =>
                   handleAlterMonth(String(target.value))
                 }
@@ -124,6 +126,7 @@ const Calendario = ({ setData, errorDate, setErrorDate }) => {
               variant="outlined"
               className="select_month"
               margin="dense"
+              IconComponent={Expand}
               value={yearSelected}
               onChange={({ target }) => handleAlterYear(String(target.value))}
               MenuProps={{

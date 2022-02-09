@@ -11,7 +11,9 @@ const HistoricoSolicitacoes = (props) => {
       </div>
       <div className="cancelamento-plano-container-page">
         {props.solicitacoes.length === 0 && (
-          <p>Beneficiário não possui solicitação de cancelamento</p>
+          <p className="cancelamento-plano-historico-vazio">
+            Beneficiário não possui solicitação de cancelamento
+          </p>
         )}
         {props.solicitacoes.length > 0 && (
           <table className="cancelamento-plano-tabela">

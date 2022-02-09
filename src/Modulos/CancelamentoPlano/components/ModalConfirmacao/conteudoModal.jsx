@@ -9,6 +9,7 @@ const ConteudoModal = ({
   handleEnviar,
   errTerms,
   terms,
+  openModalMensagem,
 }) => {
   return (
     <div className="modal-content-cancelamento">
