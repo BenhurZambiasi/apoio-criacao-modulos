@@ -55,18 +55,6 @@ const Solicitacao = ({
           setErrorSelecao={setErrorSelecao}
           errorSelecao={errorSelecao}
         />
-        <HistoricoSolicitacoes solicitacoes={[]} />
-        <div className="cancelamento-plano-footer-botoes">
-          <button
-            className="btn-unimed btn-unimed--green"
-            // onClick={() => {
-            //   setHideHistorico(false);
-            //   setMessage(null);
-            // }}
-          >
-            VOLTAR
-          </button>
-        </div>
       </div>
     </div>
   );

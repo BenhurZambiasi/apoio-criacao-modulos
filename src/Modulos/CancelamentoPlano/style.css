@@ -1,11 +1,9 @@
-.container-cancelamento {
-  padding: 10px;
-}
 .cancelamento-plano-mensagem {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 .cancelamento-plano-mensagem .cancelamento-plano-mensagem-contente {
   width: 100%;
@@ -17,9 +15,13 @@
   font-family: "Unimed Slab";
   text-align: center;
 }
+.cancelamento-plano-mensagem .cancelamento-plano-mensagem-info {
+  max-width: 450px;
+}
 
 .cancelamento-plano-mensagem-warning {
   color: #f47920;
+  max-width: 550px;
 }
 
 .cancelamento-plano-mensagem-info {
@@ -84,7 +86,9 @@
 .selected td {
   background-color: #e7f0ce;
 }
-
+.cancelamento-plano-tabela tr {
+  border-bottom: #c4cbcf 1px solid;
+}
 .cancelamento-plano-tabela tr:nth-child(2n) {
   background-color: #f8f8f8;
   border-top: #c4cbcf 1px solid;
@@ -417,8 +421,394 @@
 .responsive-table-cancelamento {
   display: none;
 }
+.informe-telefone-titular {
+  margin-top: 41px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.modal-container-teste {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  padding: 10px 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content-cancelamento {
+  width: 100%;
+  max-width: 1000px;
+  height: 844px;
+  background: #fff;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  padding: 30px;
+  overflow-y: auto;
+  transform: translateY(-600px);
+  animation: animation 0.8s forwards !important;
+}
+.modal-header-responsive {
+  border-bottom: 1px solid #7c7c83;
+}
+.modal-header-responsive > h1 {
+  font-size: 18px;
+  color: #00995d;
+  font-weight: bold;
+}
+.exit-responsive {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.exit-responsive span::before {
+  content: "\2573";
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+  color: #777777;
+  cursor: pointer;
+}
+
+.content-cancelamento {
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  border-bottom: 1px solid #7c7c83;
+}
+.title div {
+  width: 92%;
+}
+.title > div > h1 {
+  text-align: left;
+  color: #00995d;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info-cartao {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 46px;
+  height: 150px;
+  overflow: auto;
+}
+
+.info-cartao .table-bene-cancelamento {
+  width: 100%;
+  max-width: 800px;
+  table-layout: fixed;
+}
+
+.thead-bene-cancelamento > tr > th {
+  text-align: left;
+  padding: 10px 40px;
+  color: #333333;
+  font-size: 16px;
+}
+
+.thead-bene-cancelamento > tr > {
+  display: block;
+  position: relative;
+}
+.tbody-bene-cancelamento > tr:first-child td {
+  padding-top: 25px;
+  text-align: left;
+}
+.tbody-bene-cancelamento > tr > td {
+  text-align: left;
+  padding: 0px 40px;
+  color: #333333;
+  font-size: 14px;
+}
+
+.tbody-bene-cancelamento tr:first-child {
+  border-top: 1px solid #c4cbcf;
+}
+
+.label-doc-cancelamento {
+  color: #333333;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.list-beneficiarios-responsive {
+  display: none;
+  padding: 10px 10px;
+  overflow-y: auto;
+  max-height: 200px;
+  border-bottom: 1px solid #7c7c83;
+  margin-bottom: 10px;
+}
+
+.list-beneficiarios-responsive > div {
+  display: flex;
+  flex-direction: column;
+}
+.list-beneficiarios-responsive > div > span {
+  font-size: 12px;
+}
+.list-beneficiarios-responsive > div > span:nth-child(1) {
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
+}
+.list-beneficiarios-responsive::-webkit-scrollbar,
+.aviso-responsive-container::-webkit-scrollbar,
+.info-cartao::-webkit-scrollbar,
+.modal-content-cancelamento::-webkit-scrollbar,
+.content-doc-cancelamento::-webkit-scrollbar {
+  width: 14px;
+}
+.list-beneficiarios-responsive::-webkit-scrollbar-track,
+.aviso-responsive-container::-webkit-scrollbar-track,
+.info-cartao::-webkit-scrollbar-track,
+.modal-content-cancelamento::-webkit-scrollbar-track
+  .content-doc-cancelamento::-webkit-scrollbar-track {
+  background: #fff;
+}
+.list-beneficiarios-responsive::-webkit-scrollbar-thumb,
+.aviso-responsive-container::-webkit-scrollbar-thumb,
+.info-cartao::-webkit-scrollbar-thumb,
+.modal-content-cancelamento::-webkit-scrollbar-thumb,
+.content-doc-cancelamento::-webkit-scrollbar-thumb {
+  background-color: #c4cbcf;
+  border-radius: 20px;
+  border: 5px solid #fff;
+}
+
+.divider-list-beneficiarios-responsive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2px;
+  margin: 10px 0px;
+  width: 100%;
+  background-color: #00000029;
+}
+
+.content-doc-cancelamento {
+  height: 319px;
+  border: 1px solid #ececec;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  overflow: auto;
+  color: #333333;
+  text-align: left;
+  padding: 15px;
+}
+.doc-cancelamento .content-doc-cancelamento .title-doc-cancelamento {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.actions-cancelamento {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.actions-cancelamento button {
+  width: 152px;
+  height: 40px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #00995d;
+  font-size: 16px;
+}
+
+.actions-cancelamento .btn-cancelar {
+  color: #777777;
+  border: 1px solid #777777;
+  background: #fff;
+}
+
+.actions-cancelamento .btn-cancelar::after {
+  content: "Cancelar";
+}
+
+.actions-cancelamento .btn-cancelar:hover:after {
+  content: "Voltar";
+}
+
+.actions-cancelamento .btn-cancelar:hover {
+  background: #ececec;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.actions-cancelamento .btn-enviar:hover {
+  background: #411564;
+}
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content-mensagem {
+  top: 150px;
+  width: 450px;
+  background: #fff;
+  height: 405px;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  padding: 21px 29px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-600px);
+  animation: animation 0.5s forwards !important;
+}
+
+.close-message {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.close-message span::before {
+  content: "\2573";
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+  color: #777777;
+  cursor: pointer;
+}
+
+.icon_check {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 29px;
+}
+.icon_check > img {
+  height: 60px;
+  color: #00995d;
+}
+.mensagem {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 29px;
+}
+.mensagem p {
+  color: #00401a;
+  font-size: 18px;
+  font-weight: bold;
+}
+.protocolo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+.informacao {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #333333;
+}
 
 @media (max-width: 768px) {
+  .modal-content-mensagem {
+    width: 340px;
+    height: 380px;
+    padding: 21px 26px;
+  }
+  .icon_check {
+    margin-bottom: 20px;
+  }
+  .icon_check > img {
+    height: 50px;
+  }
+  .mensagem {
+    padding: 0px 21px;
+  }
+  .mensagem p {
+    font-size: 16px;
+  }
+  .protocolo {
+    font-size: 16px;
+  }
+  .informacao {
+    font-size: 15px;
+  }
+}
+
+@keyframes animation {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content-cancelamento {
+    height: 944px;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .info-cartao {
+    display: none;
+  }
+  .list-beneficiarios-responsive {
+    display: block;
+  }
+  .title > div > h1 {
+    font-size: 18px;
+  }
+
+  .label-doc-cancelamento,
+  .title-doc-cancelamento,
+  .doc-cancelamento {
+    font-size: 14px !important;
+  }
+  .responsive-terms label:nth-child(2) {
+    font-size: 14px !important;
+  }
+  .content-doc-cancelamento {
+    height: 319px;
+  }
+}
+
+@keyframes animation {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-cancelamento {
+    padding: 10px;
+  }
+
   /*Títlulo*/
   .cancelamento-plano-titulo h1 {
     font-size: 24px;

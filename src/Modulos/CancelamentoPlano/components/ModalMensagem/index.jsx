@@ -2,7 +2,7 @@ import React from "react";
 
 import icon_check from "../../assets/icons/icone_check.svg";
 
-import "./styles.css";
+import "../../style.css";
 const ModalMensagem = ({ handleClose, protocolo }) => {
   return (
     <div className="modal-container">

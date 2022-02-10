@@ -1,6 +1,6 @@
 import React from "react";
 import Checkbox from "../Checkbox";
-import "./styles.css";
+import "../../style.css";
 
 const ConteudoModal = ({
   beneficiarios,

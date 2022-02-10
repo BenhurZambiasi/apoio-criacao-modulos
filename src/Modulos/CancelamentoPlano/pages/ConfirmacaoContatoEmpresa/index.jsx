@@ -32,7 +32,6 @@ const ConfirmacaoContatoEmpresa = (props) => {
           SIM
         </button>
       </div>
-      <HistoricoSolicitacoes solicitacoes={[]} />
     </>
   );
 };

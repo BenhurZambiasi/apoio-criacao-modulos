@@ -69,7 +69,7 @@ const Formulario = ({
                     : ""
                 }`}
                 name="telefone"
-                placeholder="Telefone com DDD"
+                placeholder="(00) 0000-0000"
                 type="text"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -89,7 +89,7 @@ const Formulario = ({
                     : ""
                 }`}
                 name="email"
-                placeholder="Digite seu e-mail"
+                placeholder="...@.com.br"
                 type="email"
                 onChange={handleChange}
                 onBlur={handleBlur}

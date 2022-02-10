@@ -27,6 +27,7 @@ const App = () => {
     []
   );
   const [hideHistorico, setHideHistorico] = useState(false);
+  const [historico, setHistorico] = useState([]);
 
   const [tipoFormulario, setTipoFormulario] = useState(
     "ConfirmacaoContatoEmpresa"
@@ -60,6 +61,22 @@ const App = () => {
           relacao: "Dependente",
         },
       ];
+
+      let auxHistorico = [
+        {
+          cartao: "0006545310",
+          nome: "Paulo 5",
+          data: "04/02/2022",
+          protocolo: "123456",
+        },
+        {
+          cartao: "0006545311",
+          nome: "Paulo 6",
+          data: "04/02/2022",
+          protocolo: "123456",
+        },
+      ];
+      setHistorico(auxHistorico);
       setBenefiarios(aux);
     })();
     const fetchRegrasNegocio = () => {
@@ -107,6 +124,8 @@ const App = () => {
           handleClose={handleClose}
           setBenefiarios={setBenefiarios}
           openModalMensagem={openModalMensagem}
+          historico={historico}
+          setHistorico={setHistorico}
         />
       )}
       <Titulo />
@@ -137,9 +156,8 @@ const App = () => {
           setHideHistorico={setHideHistorico}
         />
       )}
-      {/* {!hideHistorico && <HistoricoSolicitacoes solicitacoes={[]} />} */}
-      {tipoFormulario !== "Solicitacao" &&
-      tipoFormulario !== "ConfirmacaoDataContatoEmpresa" ? (
+      <HistoricoSolicitacoes solicitacoes={historico} />
+      {tipoFormulario !== "ConfirmacaoDataContatoEmpresa" ? (
         <div className="cancelamento-plano-footer-botoes">
           <button
             className="btn-unimed btn-unimed--green"
